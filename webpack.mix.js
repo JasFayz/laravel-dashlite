@@ -13,6 +13,11 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue()
+    .sass('resources/scss/theme.scss', 'public/css')
+    .browserSync({
+        proxy: "http://localhost:8080",
+        port: 3030
+    })
     // .postCss('resources/css/app.css', 'public/css', [
     //     require('tailwindcss'),
     //     require('autoprefixer'),
