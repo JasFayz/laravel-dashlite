@@ -33,12 +33,12 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <router-link to="/post/add" class="nk-menu-link">
+                            <router-link to="/post/add" exact class="nk-menu-link">
                                 <span class="nk-menu-text">Add Page</span>
                             </router-link>
                         </li>
                         <li class="nk-menu-item">
-                            <router-link to="/post" class="nk-menu-link">
+                            <router-link to="/post" exact class="nk-menu-link">
                                 <span class="nk-menu-text">Page List</span>
                             </router-link>
                         </li>

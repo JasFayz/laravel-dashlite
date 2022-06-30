@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('{catchall}', function () {
-    return view('welcome');
-})->where('catchall', '.*');
 
+
+Route::view('/{any}', 'welcome')
+    ->where('any', '.*');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
