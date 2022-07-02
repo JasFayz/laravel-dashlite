@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\PagesAction\CreatePageAction;
+use App\Actions\PagesAction\CreatePostCategoryAction;
 use App\Actions\PagesAction\EditPageAction;
 use App\DTOs\PageDTO;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreatePageRequest;
-use App\Http\Requests\Admin\UpdatePageRequest;
+use App\Http\Requests\Admin\Page\CreatePageRequest;
+use App\Http\Requests\Admin\Page\UpdatePageRequest;
 use App\Models\Admin\Page;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -33,7 +32,7 @@ class PageController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePageRequest $request, CreatePageAction $createPageAction)
+    public function store(CreatePageRequest $request, CreatePostCategoryAction $createPageAction)
     {
         try {
             $page = $createPageAction->fromRequest(PageDTO::fromCreateRequest($request));

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\PostCategory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePageRequest extends FormRequest
+class UpdatePostCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,10 @@ class UpdatePageRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
-            "title" => 'required|array',
-            "content" => 'required|array',
-            "slug" => 'required|string',
-            "status" => 'required',
+            'title' => 'required',
+            'parent_id' => 'required|integer',
+            'desc' => 'required'
         ];
     }
 }

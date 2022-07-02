@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePageRequest extends FormRequest
+class CreatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class CreatePageRequest extends FormRequest
             "title" => 'required|array',
             "content" => 'required|array',
             "slug" => 'required|string',
-            "status" => 'required',
+
         ];
     }
 }

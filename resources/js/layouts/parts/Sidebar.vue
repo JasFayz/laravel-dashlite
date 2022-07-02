@@ -33,12 +33,12 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <router-link to="/post/add" exact class="nk-menu-link">
+                            <router-link to="/page/add" exact class="nk-menu-link">
                                 <span class="nk-menu-text">Add Page</span>
                             </router-link>
                         </li>
                         <li class="nk-menu-item">
-                            <router-link to="/post" exact class="nk-menu-link">
+                            <router-link to="/page" exact class="nk-menu-link">
                                 <span class="nk-menu-text">Page List</span>
                             </router-link>
                         </li>
@@ -60,18 +60,18 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="html/cms/post-list.html" class="nk-menu-link"
-                            ><span class="nk-menu-text">All Post</span></a
+                            <router-link  to="/post" class="nk-menu-link"
+                            ><span class="nk-menu-text">All Post</span></router-link
                             >
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/cms/post-add.html" class="nk-menu-link"
-                            ><span class="nk-menu-text">Add Post</span></a
+                            <router-link to="/post/add" class="nk-menu-link"
+                            ><span class="nk-menu-text">Add Post</span></router-link
                             >
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/cms/categories.html" class="nk-menu-link"
-                            ><span class="nk-menu-text">Categories</span></a
+                            <router-link to="/post/category" class="nk-menu-link"
+                            ><span class="nk-menu-text">Categories</span></router-link
                             >
                         </li>
                     </ul>

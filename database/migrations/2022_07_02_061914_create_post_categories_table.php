@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,16 +13,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('post_categories', function (Blueprint $table) {
             $table->id();
             $table->jsonb('title');
-            $table->jsonb('content');
             $table->string('slug');
-            $table->boolean('status');
-            $table->boolean('is_commentable');
-            $table->boolean('is_draft')->default(false);
-            $table->foreignId('drafter_owner_id')
-                ->nullable()->constrained('users', 'id');
+            $table->integer('parent_id');
+            $table->jsonb('desc');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('post_categories');
     }
 };

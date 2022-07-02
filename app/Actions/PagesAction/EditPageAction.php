@@ -3,7 +3,6 @@
 namespace App\Actions\PagesAction;
 
 use App\DTOs\PageDTO;
-use App\Http\Requests\Admin\UpdatePageRequest;
 use App\Models\Admin\Page;
 
 class EditPageAction
