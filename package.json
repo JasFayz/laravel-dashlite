@@ -27,9 +27,11 @@
     },
     "dependencies": {
         "@vueup/vue-quill": "^1.0.0-beta.8",
+        "bootstrap": "4.6",
         "jquery": "^3.6.0",
-        "laravel-vue-pagination": "github:JasFayz/laravel-vue-pagination",
+        "v-pagination-3": "^0.1.7",
         "vue": "^3.2.36",
-        "vue-router": "^4.0.16"
+        "vue-router": "^4.0.16",
+        "vue3-select2-component": "^0.1.7"
     }
 }

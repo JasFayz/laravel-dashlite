@@ -9,19 +9,21 @@ use App\Http\Requests\Admin\Post\CreatePostRequest;
 use App\Http\Requests\Admin\Post\UpdatePostRequest;
 use Carbon\Carbon;
 use Dflydev\DotAccessData\Data;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Integer;
 
 class PostDTO
 {
     public function __construct(
-        public array  $title,
-        public array  $content,
-        public string $slug,
-        public int    $category_id,
-        public Carbon $published_at,
-        public bool   $status,
-        public bool   $is_commentable
+        public array        $title,
+        public array        $content,
+        public string       $slug,
+        public int          $category_id,
+        public Carbon       $published_at,
+        public UploadedFile $image,
+        public bool         $status,
+        public bool         $is_commentable
     )
     {
     }
@@ -34,6 +36,7 @@ class PostDTO
             slug: (string)Str::of($request->input('slug'))->trim(),
             category_id: (int)$request->input('category_id'),
             published_at: new Carbon($request->input('published_at')),
+            image: $request->file('image'),
             status: $request->has('status'),
             is_commentable: $request->has('is_commentable')
         );
@@ -47,6 +50,7 @@ class PostDTO
             slug: (string)Str::of($request->input('slug'))->trim(),
             category_id: (int)$request->input('category_id'),
             published_at: new Carbon($request->input('published_at')),
+            image: $request->file('image'),
             status: $request->has('status'),
             is_commentable: $request->has('is_commentable')
         );

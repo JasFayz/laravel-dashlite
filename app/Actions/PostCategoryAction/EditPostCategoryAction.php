@@ -12,6 +12,7 @@ class EditPostCategoryAction
 
     public function fromRequest(PostCategoryDTO $postCategoryDTO, PostCategory $postCategory)
     {
+
         $postCategory->update([
             'title' => $postCategoryDTO->title,
             'slug' => $postCategoryDTO->slug,

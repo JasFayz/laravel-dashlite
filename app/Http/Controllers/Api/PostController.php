@@ -28,7 +28,7 @@ class PostController extends Controller
     {
         try {
             $post = $createPostAction->fromRequest(PostDTO::fromCreateRequest($request));
-            return response()->json(['data' => $post, 'status' => 'success']);
+            return response()->json(['data' => $post, 'status' => 'success'], 201);
         } catch (\Exception $exception) {
             return response()->json([
                 'message' => $exception->getMessage(),
@@ -70,7 +70,7 @@ class PostController extends Controller
             $post->delete();
             return response()->json([
                 'status' => 'success',
-            ], 403);
+            ], 204);
         } catch (\Exception $exception) {
             return response()->json([
                 'status' => 'error',

@@ -19,7 +19,7 @@ class PostCategoryController extends Controller
 
     public function index()
     {
-        $posts = PostCategory::query()->paginate();
+        $posts = PostCategory::query()->with('parent')->orderBy('id')->paginate(9);
 
         return response()->json([
             'data' => $posts,
@@ -50,19 +50,25 @@ class PostCategoryController extends Controller
         try {
             return $category;
         } catch (NotFoundHttpException $exception) {
-            throw new NotFoundHttpException('Entity does not exist',);
+//            throw new NotFoundHttpException('Entity does not exist',);
+            return response()->json([
+                'status' => 'error',
+                'message' => $exception->getMessage(),
+                'code' => $exception->getCode()
+            ], 404);
         }
     }
 
 
-    public function update(UpdatePostCategoryRequest $request, PostCategory $postCategory, EditPostCategoryAction $editPostCategoryAction)
+    public function update(UpdatePostCategoryRequest $request, PostCategory $category, EditPostCategoryAction $editPostCategoryAction)
     {
         try {
-            $postCategory = $editPostCategoryAction->fromRequest(PostCategoryDTO::fromUpdateRequest($request), $postCategory);
+            $postCategory = $editPostCategoryAction->fromRequest(PostCategoryDTO::fromUpdateRequest($request), $category);
             return response()->json([
                 'data' => $postCategory,
-            ], 403);
+            ], 201);
         } catch (\Exception $exception) {
+
             return response()->json([
                 'status' => 'error',
                 'message' => $exception->getMessage(),
@@ -93,5 +99,10 @@ class PostCategoryController extends Controller
                 'status' => 'error'
             ]);
         }
+    }
+
+    public function getAllPostCategory()
+    {
+        return PostCategory::query()->get();
     }
 }

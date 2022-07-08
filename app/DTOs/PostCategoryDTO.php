@@ -23,7 +23,7 @@ class PostCategoryDTO
 
         return new self(
             title: $request->input('title'),
-            slug: Str::slug($request->input('title')[app()->getLocale()]),
+            slug: $request->input('slug'),
             parent_id: $request->input('parent_id'),
             desc: $request->input('desc')
         );
@@ -33,7 +33,7 @@ class PostCategoryDTO
     {
         return new self(
             title: $request->input('title'),
-            slug: Str::slug($request->input('title')),
+            slug: $request->input('slug'),
             parent_id: $request->input('parent_id'),
             desc: $request->input('desc')
         );

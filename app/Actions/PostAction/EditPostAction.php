@@ -12,8 +12,8 @@ class EditPostAction
     public function fromRequest(PostDTO $postDTO, Post $post)
     {
         $post->update([
-            'title' => json_encode($postDTO->title),
-            'content' => json_encode($postDTO->content),
+            'title' => $postDTO->title,
+            'content' => $postDTO->content,
             'slug' => $postDTO->slug,
             'category_id' => $postDTO->category_id,
             'status' => $postDTO->status,

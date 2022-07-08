@@ -23,10 +23,11 @@ class UpdatePostCategoryRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'title' => 'required',
+            'title' => 'required|array',
             'parent_id' => 'required|integer',
-            'desc' => 'required'
+            'desc' => 'required|array'
         ];
     }
 }

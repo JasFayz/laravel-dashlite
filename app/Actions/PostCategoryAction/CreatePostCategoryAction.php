@@ -12,12 +12,11 @@ class CreatePostCategoryAction
     public function fromRequest(PostCategoryDTO $postCategoryDTO)
     {
 
-
         return PostCategory::create([
-            'title' => json_encode($postCategoryDTO->title),
+            'title' => $postCategoryDTO->title,
             'slug' => $postCategoryDTO->slug,
             'parent_id' => $postCategoryDTO->parent_id,
-            'desc' => json_encode($postCategoryDTO->desc)
+            'desc' => $postCategoryDTO->desc
         ]);
     }
 }
